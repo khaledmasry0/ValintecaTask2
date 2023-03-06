@@ -1,0 +1,286 @@
+:root {
+    /* Primary */
+    --marine-blue: hsl(213, 96%, 18%);
+    --Purplish-blue: hsl(243, 100%, 62%);
+    --Pastel-blue: hsl(228, 100%, 84%);
+    --Light-blue: hsl(206, 94%, 87%);
+    /* Neutral */
+    --Cool-gray: hsl(231, 11%, 63%);
+    --Light-gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+    --black: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--Light-gray);
+    padding-bottom: 2rem;
+}
+
+/* scrollbar */
+
+*::-webkit-scrollbar {
+    background-color: var(--White);
+    width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--Light-gray);
+}
+
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--marine-blue);
+}
+
+/* ------------------------------------------------------------ */
+
+.container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Nav Bar */
+
+nav {
+    padding: 1rem;
+    background-color: var(--marine-blue);
+    color: var(--Alabaster);
+    position: sticky;
+    top: 0;
+    z-index: 5
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--Light-gray);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+nav h1 {
+    letter-spacing: 0.1rem;
+}
+
+.cart {
+    cursor: pointer;
+}
+
+.arrow {
+    position: relative;
+
+}
+
+.arrow.moving {
+    animation: move 1s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        top: -6px
+    }
+
+    50% {
+        top: -3px
+    }
+
+    70% {
+        top: -4px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+/* / / Nav Bar / / */
+
+/* ------------------------------------------------------------ */
+
+/* Dropdown */
+
+aside {
+    position: fixed;
+    background-color: var(--marine-blue);
+    right: 11%;
+    color: var(--Light-gray);
+    width: 15rem;
+    border-bottom-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+    display: none;
+}
+
+aside.open {
+    display: block;
+}
+
+aside .row {
+    display: flex;
+    border-bottom: 1px solid var(--black);
+    padding: 0.3rem 1rem;
+    align-items: center;
+    border-bottom-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+
+aside img {
+    width: 3rem;
+    margin-right: 1rem;
+}
+
+.total-price {
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* / / Dropdown / / */
+
+/* ------------------------------------------------------------ */
+
+/* Products Container */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    flex-wrap: wrap;
+    padding: 2rem 1rem 1rem;
+    gap: 2rem;
+}
+
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 17rem;
+    padding: 2rem 1.5rem 1rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1.5rem;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: .5rem;
+}
+
+.card h3 {
+    color: var(--marine-blue);
+    margin-bottom: 0.2rem;
+}
+
+.card .card-buttons {
+    margin-top: .7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .card-buttons button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--marine-blue);
+    color: var(--Light-gray);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 .2rem;
+}
+
+.card .card-buttons button:hover {
+    background-color: hsl(213, 49%, 31%);
+}
+
+/* / /  Products Container  / / */
+
+/* ------------------------------------------------------------ */
+
+/* Modal */
+
+.modal {
+    transition: 0.5s;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.478);
+    z-index: 2;
+}
+
+.modal .view-card {
+    background-color: var(--White);
+    width: fit-content;
+    position: relative;
+    padding: 2rem;
+    border-radius: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.modal .view-card img {
+    width: 12rem;
+    margin-right: 1rem;
+}
+
+.modal .view-card>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.modal .view-card .card-description {
+    color: var(--marine-blue);
+}
+
+.modal .view-card .card-description h3 {
+    margin-bottom: 0.5rem;
+}
+
+.modal .view-card .card-buttons {
+    margin-top: .7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .view-card .card-buttons button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--marine-blue);
+    color: var(--Light-gray);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 1rem;
+}
+
+.modal .view-card .card-buttons button:hover {
+    background-color: hsl(213, 49%, 31%);
+}
+
+
+/* / / Modal / /  */
