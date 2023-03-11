@@ -7,7 +7,7 @@ const arrow = document.querySelector(".arrow");
 let addedProducts = [];
 let localItems = JSON.parse(localStorage.getItem("products"));
 
-let products = [
+const products = [
   {
     product_id: 1,
     product_name: "Iphone 13 pro",
@@ -63,10 +63,14 @@ function checklocalItem(e) {
 
 // get the count of products
 
-let counter = localItems
-  ? localItems.filter((addedOnes) => addedOnes.added_to_cart == true).length
-  : 0;
+let counter = counterValue();
 card_span.innerHTML = counter;
+
+function counterValue() {
+  return localItems
+    ? localItems.filter((addedOnes) => addedOnes.added_to_cart == true).length
+    : 0;
+}
 
 // Show all products
 
